@@ -1,0 +1,49 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.bytatech.patientprescription",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "microservice",
+    "baseName": "PatientPrescription",
+    "packageName": "com.bytatech.patientprescription",
+    "packageFolder": "com/bytatech/patientprescription",
+    "serverPort": "8090",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTdlOWJiMTlkYTE5OTg2NjJhNzU3M2MwYWQ1Mzg1ZTA1YTcxMTg2NTg5MjA4NjBiN2ZmZTNlNGZjMDc4YjQ4M2U0YWQ4NTgzOTQ5ZTU2ZTU4NzIwYWQ4ODJhNzk3ODdmNWQ5ZjNmM2QzOGRkYmIzMTkxM2RhNWE0NGI0YjM3ZGE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1578730893375,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  },
+  "generator-jhipster-swagger-cli": {
+    "promptValues": {
+      "inputSpec": "/home/ajay/Downloads/apache-tomcat-9.0.30/webapps/activiti-rest/docs/activiti.json",
+      "cliName": "activiti"
+    }
+  }
+}

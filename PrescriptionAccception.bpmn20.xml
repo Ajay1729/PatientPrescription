@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="PrescriptionAccception" name="PrescriptionAccception" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="sid-D8F7834D-3DE0-482F-8CB9-F2DA44BD7AE6" name="User Selection" activiti:assignee="${patient}" activiti:candidateGroups="patient" activiti:formKey="AcceptPresciption">
+      <extensionElements>
+        <activiti:formProperty id="choice" type="string" required="true"></activiti:formProperty>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-A8277459-1940-4BD5-8D96-1E4220EB1F57" sourceRef="startEvent1" targetRef="sid-D8F7834D-3DE0-482F-8CB9-F2DA44BD7AE6"></sequenceFlow>
+    <exclusiveGateway id="sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800"></exclusiveGateway>
+    <endEvent id="sid-002A40B8-1C58-4C4F-B38D-9E72204AAD74"></endEvent>
+    <userTask id="sid-9121EEB3-9409-43E8-971B-7390C6467044" name="Recieve Presciption"></userTask>
+    <sequenceFlow id="sid-1EB2DD0D-D2FB-43E9-A322-8E577189EBE4" sourceRef="sid-9121EEB3-9409-43E8-971B-7390C6467044" targetRef="sid-002A40B8-1C58-4C4F-B38D-9E72204AAD74"></sequenceFlow>
+    <sequenceFlow id="sid-0C1CF916-7F9A-49A6-A94A-1F14D9DCC9BD" name="Accept presciption" sourceRef="sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800" targetRef="sid-9121EEB3-9409-43E8-971B-7390C6467044">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${choice=="Accept"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7FDA2987-0BC5-4131-8D26-A399619F80A7" sourceRef="sid-D8F7834D-3DE0-482F-8CB9-F2DA44BD7AE6" targetRef="sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800"></sequenceFlow>
+    <sequenceFlow id="sid-B79E301E-70D2-48C5-BAD7-D11A0F87C6D6" name="Reject presciption" sourceRef="sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800" targetRef="sid-002A40B8-1C58-4C4F-B38D-9E72204AAD74">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${choice=="Reject"}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_PrescriptionAccception">
+    <bpmndi:BPMNPlane bpmnElement="PrescriptionAccception" id="BPMNPlane_PrescriptionAccception">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-D8F7834D-3DE0-482F-8CB9-F2DA44BD7AE6" id="BPMNShape_sid-D8F7834D-3DE0-482F-8CB9-F2DA44BD7AE6">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800" id="BPMNShape_sid-A2B6E4CE-8F7C-4D21-B2CF-D873D279C800">
+        <omgdc:Bounds height="40.0" width="40.0" x="345.0" y="158.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-002A40B8-1C58-4C4F-B38D-9E72204AAD74" id="BPMNShape_sid-002A40B8-1C58-4C4F-B38D-9E72204AAD74">
+        <omgdc:Bounds height="28.0" width="28.0" x="630.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-9121EEB3-9409-43E8-971B-7390C6467044" id="BPMNShape_sid-9121EEB3-9409-43E8-971B-7390C6467044">
+        <omgdc:Bounds height="80.0" width="100.0" x="460.0" y="0.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-B79E301E-70D2-48C5-BAD7-D11A0F87C6D6" id="BPMNEdge_sid-B79E301E-70D2-48C5-BAD7-D11A0F87C6D6">
+        <omgdi:waypoint x="385.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="630.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7FDA2987-0BC5-4131-8D26-A399619F80A7" id="BPMNEdge_sid-7FDA2987-0BC5-4131-8D26-A399619F80A7">
+        <omgdi:waypoint x="265.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="305.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="345.95238095238096" y="177.04761904761904"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A8277459-1940-4BD5-8D96-1E4220EB1F57" id="BPMNEdge_sid-A8277459-1940-4BD5-8D96-1E4220EB1F57">
+        <omgdi:waypoint x="129.9932545528355" y="177.5502023634149"></omgdi:waypoint>
+        <omgdi:waypoint x="165.0" y="176.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0C1CF916-7F9A-49A6-A94A-1F14D9DCC9BD" id="BPMNEdge_sid-0C1CF916-7F9A-49A6-A94A-1F14D9DCC9BD">
+        <omgdi:waypoint x="365.0" y="158.0"></omgdi:waypoint>
+        <omgdi:waypoint x="365.0" y="40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="460.0" y="40.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-1EB2DD0D-D2FB-43E9-A322-8E577189EBE4" id="BPMNEdge_sid-1EB2DD0D-D2FB-43E9-A322-8E577189EBE4">
+        <omgdi:waypoint x="560.0" y="40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="644.0" y="40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="644.0" y="164.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
